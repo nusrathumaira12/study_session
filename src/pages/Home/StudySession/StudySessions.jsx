@@ -1,39 +1,30 @@
-import React from 'react';
-import { useLoaderData } from 'react-router';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router'
 
 const StudySessions = () => {
-    const Sessions = useLoaderData()
-    
+  const [sessions, setSessions] = useState([]);
+  const navigate = useNavigate();
 
-//   const [currentPage, setCurrentPage] = useState(1)
-//   const sessionsPerPage = 6;
+  // ✅ API call to backend
+  useEffect(() => {
+    fetch('http://localhost:5001/sessions')
+      .then(res => res.json())
+      .then(data => setSessions(data))
+      .catch(error => console.error('Error fetching sessions:', error));
+  }, []);
 
-//   useEffect(() => {
-//     fetch('/sessions.json')
-//       .then(res => res.json())
-//       .then(data => setSessions(data));
-//   }, []);
-
-//   const totalPages = Math.ceil(sessions.length/sessionsPerPage)
-//   const handleNext = () => {
-//     if(currentPage < totalPages) setCurrentPage(prev => prev + 1)
-//   }
-
-//   const handlePrev = () => {
-//     if(currentPage > 1) setCurrentPage(prev => prev - 1)
-//   }
+  // ✅ Check registration status
   const checkStatus = (start, end) => {
     const now = new Date();
     const startDate = new Date(start);
     const endDate = new Date(end);
-
     return now >= startDate && now <= endDate ? 'Ongoing' : 'Closed';
   };
 
   return (
     <div className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {Sessions.map(session => (
-        <div key={session.id} className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+      {sessions.map(session => (
+        <div key={session._id} className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
           <img src={session.image} alt={session.title} className="w-full h-40 object-cover rounded-md mb-4" />
           <h2 className="text-xl font-bold mb-2">{session.title}</h2>
           <p className="text-gray-600 mb-2">{session.description}</p>
@@ -52,7 +43,9 @@ const StudySessions = () => {
 
           <p className="text-sm italic text-gray-500 mb-2">Approval Status: {session.status}</p>
 
-          <button className="mt-2 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">
+          <button  
+            onClick={() => navigate(`/study-sessions/${session._id}`)}
+            className="mt-2 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">
             Read More
           </button>
         </div>

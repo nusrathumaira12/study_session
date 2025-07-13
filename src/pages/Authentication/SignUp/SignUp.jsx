@@ -1,58 +1,101 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import toast from 'react-hot-toast';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const SignUp = () => {
-    const {register, handleSubmit, formState: {errors}} = useForm()
-    const {createUser} = useAuth()
-    
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { createUser, updateUserProfile } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
 
-    const onSubmit = data => {
-        console.log(data)
-     createUser(data.email, data.password )
-     .then(result => {
-        console.log(result.user)
-     })
-     .catch(error => {
-        console.error(error)
-     })
-    }
-    return (
-  
-          
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <div className="card-body">
-            <h1 className="text-5xl font-bold">Create an account!</h1>
-             <form onSubmit={handleSubmit(onSubmit)}>
-             <fieldset className="fieldset">
-                <label className="label">Email</label>
-                <input type="email" 
-                {...register('email', {required: true})} className="input" placeholder="Email" />
-{
-    errors.email?.type === 'required' && <p className='text-red-500'>Email is required</p>
-}
+  const onSubmit = data => {
+    const { name, email, photo, password, role } = data;
 
-                <label className="label">Password</label>
-                <input type="password" {...register('password', {required: true, minLength: 6})} className="input" placeholder="Password" />
-
-                {
-                    errors.password?.type === 'required' && <p className='text-red-500'>Password is required</p>
+    createUser(email, password)
+      .then(result => {
+        // Update Firebase profile
+        updateUserProfile(name, photo)
+          .then(() => {
+            // Save user to database
+            const newUser = {
+              name,
+              email,
+              photo,
+              role: role || 'student' // default role
+            };
+            console.log(result.newUser)
+            axiosSecure.post('/users', newUser)
+              .then(res => {
+                if (res.data.insertedId) {
+                  toast.success('User registered successfully!');
+                  navigate('/');
                 }
-                {
-                    errors.password?.type === 'minLength' && <p className='text-red-500'>Password must be 6 characters or longer</p>
-                }
-                <div><a className="link link-hover">Forgot password?</a></div>
-                <button className="btn   bg-blue-500 mt-4 text-white">SignUp</button>
-              </fieldset>
-              <p><small>Already have an account?<Link to="/login" className='btn btn-link -ml-4'>LogIn</Link></small></p>
-             </form>
-             <SocialLogin></SocialLogin>
-            </div>
+              });
+          });
+      })
+      .catch(error => {
+        toast.error(error.message);
+        console.error(error);
+      });
+  };
+
+  return (
+    <div className="card bg-base-100 w-full max-w-sm mx-auto shadow-2xl my-10">
+      <div className="card-body">
+        <h1 className="text-3xl font-bold text-center">Create an account!</h1>
+
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 mt-4">
+          <div>
+            <label className="label">Name</label>
+            <input type="text" {...register('name', { required: true })} className="input input-bordered w-full" placeholder="Full Name" />
+            {errors.name && <p className="text-red-500">Name is required</p>}
           </div>
-       
-    );
+
+          <div>
+            <label className="label">Photo URL</label>
+            <input type="text" {...register('photo', { required: true })} className="input input-bordered w-full" placeholder="Photo URL" />
+            {errors.photo && <p className="text-red-500">Photo is required</p>}
+          </div>
+
+          <div>
+            <label className="label">Email</label>
+            <input type="email" {...register('email', { required: true })} className="input input-bordered w-full" placeholder="Email" />
+            {errors.email && <p className="text-red-500">Email is required</p>}
+          </div>
+
+          <div>
+            <label className="label">Password</label>
+            <input type="password" {...register('password', { required: true, minLength: 6 })} className="input input-bordered w-full" placeholder="Password" />
+            {errors.password?.type === 'required' && <p className="text-red-500">Password is required</p>}
+            {errors.password?.type === 'minLength' && <p className="text-red-500">Minimum 6 characters</p>}
+          </div>
+
+          <div>
+            <label className="label">Role</label>
+            <select {...register('role')} className="select select-bordered w-full">
+              <option value="student">Student (Default)</option>
+              <option value="tutor">Tutor</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+
+          <button type="submit" className="btn btn-primary w-full">Sign Up</button>
+
+          <p className="text-center">
+            Already have an account?
+            <Link to="/login" className="link link-primary ml-1">Log In</Link>
+          </p>
+        </form>
+
+        <div className="divider">OR</div>
+        <SocialLogin />
+      </div>
+    </div>
+  );
 };
 
 export default SignUp;

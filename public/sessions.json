@@ -1,127 +1,170 @@
 [
-    {
-      "_id": "1",
-      "title": "Introduction to Algebra",
-      "description": "Understand the basics of algebra including variables, expressions, and equations.",
-      "registrationStart": "2025-07-05",
-      "registrationEnd": "2025-07-15",
-      "status": "approved",
-      "image": "https://source.unsplash.com/featured/?math",
-      "category": "Mathematics"
-    },
-    {
-      "_id": "2",
-      "title": "Fundamentals of Geometry",
-      "description": "Explore geometric shapes, theorems, and formulas used in problem-solving.",
-      "registrationStart": "2025-07-01",
-      "registrationEnd": "2025-07-08",
-      "status": "approved",
-      "image": "https://source.unsplash.com/featured/?geometry",
-      "category": "Mathematics"
-    },
-    {
-      "_id": "3",
-      "title": "English Grammar Essentials",
-      "description": "Master the rules of grammar and improve your writing skills.",
-      "registrationStart": "2025-07-08",
-      "registrationEnd": "2025-07-18",
-      "status": "approved",
-      "image": "https://source.unsplash.com/featured/?english",
-      "category": "Language"
-    },
-    {
-      "_id": "4",
-      "title": "World History Overview",
-      "description": "Dive into key historical events and their global impact.",
-      "registrationStart": "2025-07-02",
-      "registrationEnd": "2025-07-07",
-      "status": "approved",
-      "image": "https://source.unsplash.com/featured/?history",
-      "category": "History"
-    },
-    {
-      "_id": "5",
-      "title": "Physics for Beginners",
-      "description": "Learn basic physics concepts such as motion, force, and energy.",
-      "registrationStart": "2025-07-10",
-      "registrationEnd": "2025-07-20",
-      "status": "approved",
-      "image": "https://source.unsplash.com/featured/?physics",
-      "category": "Science"
-    },
-    {
-      "_id": "6",
-      "title": "Basic Computer Skills",
-      "description": "Get comfortable with using computers and essential software.",
-      "registrationStart": "2025-07-06",
-      "registrationEnd": "2025-07-10",
-      "status": "approved",
-      "image": "https://source.unsplash.com/featured/?computer",
-      "category": "Technology"
-    },
-  
-    
-    {
-      "_id": "7",
-      "title": "Machine Learning Introduction",
-      "description": "Understand the foundations of machine learning and AI.",
-      "registrationStart": "2025-07-15",
-      "registrationEnd": "2025-07-25",
-      "status": "pending",
-      "image": "https://source.unsplash.com/featured/?machinelearning",
-      "category": "Technology"
-    },
-    {
-      "_id": "8",
-      "title": "Intro to Philosophy",
-      "description": "Discuss life’s biggest questions through classical and modern philosophy.",
-      "registrationStart": "2025-07-10",
-      "registrationEnd": "2025-07-18",
-      "status": "pending",
-      "image": "https://source.unsplash.com/featured/?philosophy",
-      "category": "Humanities"
-    },
-    {
-      "_id": "9",
-      "title": "Business Ethics Basics",
-      "description": "Explore ethical decision-making in the workplace.",
-      "registrationStart": "2025-07-05",
-      "registrationEnd": "2025-07-15",
-      "status": "pending",
-      "image": "https://source.unsplash.com/featured/?ethics",
-      "category": "Business"
-    },
-  
-   
-    {
-      "_id": "10",
-      "title": "Dark Web & Cybersecurity",
-      "description": "Learn about the dangers and protections of the digital underground.",
-      "registrationStart": "2025-07-01",
-      "registrationEnd": "2025-07-05",
-      "status": "rejected",
-      "image": "https://source.unsplash.com/featured/?cybersecurity",
-      "category": "Security"
-    },
-    {
-      "_id": "11",
-      "title": "Street Art & Graffiti",
-      "description": "Explore the culture and creativity of urban art movements.",
-      "registrationStart": "2025-07-01",
-      "registrationEnd": "2025-07-09",
-      "status": "rejected",
-      "image": "https://source.unsplash.com/featured/?graffiti",
-      "category": "Art"
-    },
-    {
-      "_id": "12",
-      "title": "Conspiracy Theories 101",
-      "description": "A critical look at the psychology and impact of conspiracy theories.",
-      "registrationStart": "2025-07-03",
-      "registrationEnd": "2025-07-08",
-      "status": "rejected",
-      "image": "https://source.unsplash.com/featured/?conspiracy",
-      "category": "Social Science"
-    }
-  ]
-  
+  {
+    "title": "Web Development Bootcamp",
+    "tutorName": "Arman Hossain",
+    "ratings": 4.7,
+    "description": "Learn to build responsive websites using HTML, CSS, and JavaScript.",
+    "registrationStart": "2025-07-01",
+    "registrationEnd": "2025-07-10",
+    "classStart": "2025-07-12",
+    "classEnd": "2025-08-01",
+    "registrationFee": 300,
+    "status": "approved",
+    "image": "https://source.unsplash.com/featured/?webdevelopment",
+    "category": "Web Development"
+  },
+  {
+    "title": "JavaScript Mastery",
+    "tutorName": "Tania Rahman",
+    "ratings": 4.8,
+    "description": "Master modern JavaScript including ES6+, DOM, and asynchronous programming.",
+    "registrationStart": "2025-07-05",
+    "registrationEnd": "2025-07-15",
+    "classStart": "2025-07-18",
+    "classEnd": "2025-08-05",
+    "registrationFee": 250,
+    "status": "approved",
+    "image": "https://source.unsplash.com/featured/?javascript",
+    "category": "Programming"
+  },
+  {
+    "title": "React Fundamentals",
+    "tutorName": "Nabil Mahmud",
+    "ratings": 4.9,
+    "description": "Learn the core concepts of React and build modern web apps.",
+    "registrationStart": "2025-07-03",
+    "registrationEnd": "2025-07-12",
+    "classStart": "2025-07-14",
+    "classEnd": "2025-08-04",
+    "registrationFee": 400,
+    "status": "approved",
+    "image": "https://source.unsplash.com/featured/?reactjs",
+    "category": "Frontend"
+  },
+  {
+    "title": "Node.js & Express Basics",
+    "tutorName": "Shakil Ahmed",
+    "ratings": 4.5,
+    "description": "Create RESTful APIs using Node.js and Express.js.",
+    "registrationStart": "2025-07-08",
+    "registrationEnd": "2025-07-18",
+    "classStart": "2025-07-20",
+    "classEnd": "2025-08-08",
+    "registrationFee": 350,
+    "status": "approved",
+    "image": "https://source.unsplash.com/featured/?nodejs",
+    "category": "Backend"
+  },
+  {
+    "title": "MongoDB for Beginners",
+    "tutorName": "Farzana Kabir",
+    "ratings": 4.6,
+    "description": "Learn how to store, query, and manage data in MongoDB.",
+    "registrationStart": "2025-07-02",
+    "registrationEnd": "2025-07-09",
+    "classStart": "2025-07-11",
+    "classEnd": "2025-07-28",
+    "registrationFee": 200,
+    "status": "approved",
+    "image": "https://source.unsplash.com/featured/?mongodb",
+    "category": "Database"
+  },
+  {
+    "title": "Python for Data Analysis",
+    "tutorName": "Imran Haque",
+    "ratings": 4.7,
+    "description": "Analyze data using Python libraries like Pandas and Matplotlib.",
+    "registrationStart": "2025-07-06",
+    "registrationEnd": "2025-07-16",
+    "classStart": "2025-07-18",
+    "classEnd": "2025-08-05",
+    "registrationFee": 0,
+    "status": "approved",
+    "image": "https://source.unsplash.com/featured/?python",
+    "category": "Data Science"
+  },
+  {
+    "title": "Git & GitHub Version Control",
+    "tutorName": "Lubna Sultana",
+    "ratings": 4.3,
+    "description": "Learn version control and collaborative coding using Git and GitHub.",
+    "registrationStart": "2025-07-01",
+    "registrationEnd": "2025-07-08",
+    "classStart": "2025-07-10",
+    "classEnd": "2025-07-25",
+    "registrationFee": 100,
+    "status": "approved",
+    "image": "https://source.unsplash.com/featured/?git",
+    "category": "Dev Tools"
+  },
+  {
+    "title": "Introduction to APIs",
+    "tutorName": "Arif Chowdhury",
+    "ratings": 4.5,
+    "description": "Understand and create RESTful APIs for modern applications.",
+    "registrationStart": "2025-07-04",
+    "registrationEnd": "2025-07-11",
+    "classStart": "2025-07-13",
+    "classEnd": "2025-07-30",
+    "registrationFee": 150,
+    "status": "approved",
+    "image": "https://source.unsplash.com/featured/?api",
+    "category": "Web Development"
+  },
+  {
+    "title": "UI/UX Design for Developers",
+    "tutorName": "Sabina Yasmin",
+    "ratings": 4.4,
+    "description": "Learn UI/UX fundamentals to design better interfaces and experiences.",
+    "registrationStart": "2025-07-09",
+    "registrationEnd": "2025-07-17",
+    "classStart": "2025-07-19",
+    "classEnd": "2025-08-03",
+    "registrationFee": 0,
+    "status": "approved",
+    "image": "https://source.unsplash.com/featured/?uiux",
+    "category": "Design"
+  },
+  {
+    "title": "Full-Stack Project Building",
+    "tutorName": "Mehedi Hasan",
+    "ratings": 4.9,
+    "description": "Build a complete full-stack MERN project from scratch.",
+    "registrationStart": "2025-07-07",
+    "registrationEnd": "2025-07-14",
+    "classStart": "2025-07-16",
+    "classEnd": "2025-08-15",
+    "registrationFee": 500,
+    "status": "approved",
+    "image": "https://source.unsplash.com/featured/?fullstack",
+    "category": "Full Stack"
+  },
+  {
+    "title": "DevOps Essentials",
+    "tutorName": "Kamrul Huda",
+    "ratings": 4.2,
+    "description": "Learn the basics of CI/CD, Docker, and deployment pipelines.",
+    "registrationStart": "2025-07-03",
+    "registrationEnd": "2025-07-10",
+    "classStart": "2025-07-12",
+    "classEnd": "2025-07-31",
+    "registrationFee": 350,
+    "status": "approved",
+    "image": "https://source.unsplash.com/featured/?devops",
+    "category": "DevOps"
+  },
+  {
+    "title": "Cloud Fundamentals with Firebase",
+    "tutorName": "Rifat Khan",
+    "ratings": 4.6,
+    "description": "Get started with Firebase for authentication, hosting, and Firestore.",
+    "registrationStart": "2025-07-02",
+    "registrationEnd": "2025-07-12",
+    "classStart": "2025-07-14",
+    "classEnd": "2025-08-01",
+    "registrationFee": 0,
+    "status": "approved",
+    "image": "https://source.unsplash.com/featured/?firebase",
+    "category": "Cloud"
+  }
+]

@@ -8,6 +8,11 @@ import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Authentication/Login/Login";
 import SignUp from "../pages/Authentication/SignUp/SignUp";
 import StudySessions from "../pages/Home/StudySession/StudySessions";
+import PrivateRoute from "../routes/PrivateRoute";
+import StudySessionDetails from "../pages/StudySessionDetails/StudySessionDetails";
+import DashboardLsyout from "../layouts/DashboardLayout";
+import DashboardLayout from "../layouts/DashboardLayout";
+import MySessions from "../pages/Dashboard/MySessions/MySessions";
 
 
   
@@ -25,7 +30,14 @@ export const router = createBrowserRouter([
     {
 path: '/study-sessions',
 Component: StudySessions,
-loader: () => fetch('./sessions.json')
+
+    },
+    {
+      path: '/study-sessions/:id',
+      element: <PrivateRoute>
+        <StudySessionDetails></StudySessionDetails>
+        </PrivateRoute>
+
     }
   ]
     },
@@ -42,6 +54,17 @@ loader: () => fetch('./sessions.json')
           path: 'signUp',
           Component: SignUp
         }
+      ]
+    },
+
+    {
+      path: '/dashboard',
+      element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+      children: [
+{
+  path: 'my-bookings',
+  Component: MySessions
+}
       ]
     }
   ]);

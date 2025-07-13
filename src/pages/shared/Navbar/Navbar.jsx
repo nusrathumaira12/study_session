@@ -2,11 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router';
 import Logo from '../Logo/Logo';
 import useAuth from '../../../hooks/useAuth';
-import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
+
 import defaultPic from '../../../assets/default.jpg'
 
 const Navbar = () => {
-  const {user, logOut} = useAuth(AuthContext)
+  const {user, logOut} = useAuth()
 
 
 
@@ -31,7 +31,7 @@ const Navbar = () => {
        >Tutors</NavLink></li>
        <li><NavLink to="/study-sessions"
          className={({ isActive }) =>
-          isActive ? 'text-blue-500 ffont-semibold' : 'text-black font-semibold dark:text-white'
+          isActive ? 'text-blue-500 font-semibold' : 'text-black font-semibold dark:text-white'
         }
        
        >Study Sessions</NavLink></li>
@@ -84,7 +84,7 @@ const Navbar = () => {
      <div className="avatar cursor-pointer ">
                   <div className="w-10 h-10 rounded-full border-2 border-blue-500 ">
                     <img src={user.photoURL || defaultPic } alt="Profile" />
-                  </div>
+                  </div><div>{user.name}</div>
                 </div>
 
   

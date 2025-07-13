@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 
 const ApprovedSessions = () => {
   const [sessions, setSessions] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/sessions.json') // or your API endpoint
+    fetch('http://localhost:5001/sessions') // <-- replace with your real API
       .then(res => res.json())
       .then(data => {
-        const approved = data.filter(session => session.status === 'approved');
+        const approved = data
+          .filter(session => session.status === 'approved')
+          .slice(0, 6); // ✅ only first 6 approved sessions
         setSessions(approved);
       });
   }, []);
@@ -24,10 +28,12 @@ const ApprovedSessions = () => {
       <h2 className="text-3xl font-bold mb-6 text-center">Available Study Sessions</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sessions.map((session, idx) => (
-          <div key={idx} className="bg-white shadow-lg rounded-md p-5 border">
+        {sessions.map((session) => (
+          <div key={session._id} className="bg-white shadow-lg rounded-md p-5 border">
             <h3 className="text-xl font-semibold text-blue-700 mb-2">{session.title}</h3>
-            <p className="text-gray-600 mb-3">{session.description.slice(0, 100)}...</p>
+            <p className="text-gray-600 mb-3">
+              {session.description?.slice(0, 100)}...
+            </p>
 
             <div className="mb-2">
               <span
@@ -41,8 +47,14 @@ const ApprovedSessions = () => {
               </span>
             </div>
 
-            <button className="mt-4 inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
-              Read More
+            <button
+              onClick={() => navigate(`/study-sessions/${session._id}`)}
+              className="mt-4 inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded disabled:opacity-50"
+              disabled={checkStatus(session.registrationStart, session.registrationEnd) === 'Closed'}
+            >
+              {checkStatus(session.registrationStart, session.registrationEnd) === 'Closed'
+                ? 'Registration Closed'
+                : 'Read More'}
             </button>
           </div>
         ))}
