@@ -17,17 +17,17 @@ const SignUp = () => {
 
     createUser(email, password)
       .then(result => {
-        // Update Firebase profile
+        const loggedUser = result.user;
         updateUserProfile(name, photo)
           .then(() => {
-            // Save user to database
+            
             const newUser = {
               name,
               email,
               photo,
-              role: role || 'student' // default role
+              role: role || 'student' 
             };
-            console.log(result.newUser)
+            
             axiosSecure.post('/users', newUser)
               .then(res => {
                 if (res.data.insertedId) {
@@ -91,7 +91,7 @@ const SignUp = () => {
           </p>
         </form>
 
-        <div className="divider">OR</div>
+        
         <SocialLogin />
       </div>
     </div>
