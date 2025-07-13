@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router'; // ✅ FIXED
 import SocialLogin from '../SocialLogin/SocialLogin';
 import toast from 'react-hot-toast';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
@@ -11,6 +11,8 @@ const SignUp = () => {
   const { createUser, updateUserProfile } = useAuth();
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
   const onSubmit = data => {
     const { name, email, photo, password, role } = data;
@@ -18,23 +20,35 @@ const SignUp = () => {
     createUser(email, password)
       .then(result => {
         const loggedUser = result.user;
+
         updateUserProfile(name, photo)
           .then(() => {
-            
             const newUser = {
               name,
               email,
               photo,
-              role: role || 'student' 
+              role: role || 'student'
             };
-            
+
+            console.log('🚀 New User to Save:', newUser); // ✅ Debug log
+
             axiosSecure.post('/users', newUser)
               .then(res => {
                 if (res.data.insertedId) {
                   toast.success('User registered successfully!');
-                  navigate('/');
+                  navigate(from, { replace: true }); // ✅ FIXED
+                } else {
+                  toast.error('Failed to save user to database.');
                 }
+              })
+              .catch(err => {
+                toast.error('Database error');
+                console.error(err);
               });
+          })
+          .catch(err => {
+            toast.error('Profile update failed');
+            console.error(err);
           });
       })
       .catch(error => {
@@ -91,7 +105,6 @@ const SignUp = () => {
           </p>
         </form>
 
-        
         <SocialLogin />
       </div>
     </div>

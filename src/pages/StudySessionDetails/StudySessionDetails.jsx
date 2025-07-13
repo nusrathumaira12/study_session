@@ -3,12 +3,14 @@ import { useParams, useNavigate, Link } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
+import useUserRole from '../../hooks/useUserRole';
 
 const StudySessionDetails = () => {
   const { id } = useParams(); 
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
+  const {role, isLoading} = useUserRole(user?.email)
 
   const [session, setSession] = useState(null);
   const [reviews, setReviews] = useState([]);
@@ -41,30 +43,40 @@ const StudySessionDetails = () => {
   };
 
   const handleFreeBooking = async () => {
-    if (!user) return toast.error('Please login to book the session.');
-
+    if (!user) {
+      toast.error('Please login to book the session.');
+      return;
+    }
+  
     const bookingData = {
       sessionId: session._id,
+      sessionTitle: session.title,
       studentEmail: user.email,
       tutorEmail: session.tutorEmail,
       bookingDate: new Date().toISOString(),
-      feePaid: 0,
+      feePaid: 0
     };
-
+  
     try {
-      const res = await axiosSecure.post('/bookedSession', bookingData);
-      console.log(res.data); 
+      const res = await axiosSecure.post('/bookedSessions', bookingData);
+
+      console.log('Booking response:', res.data);
+  
       if (res.data.insertedId) {
         toast.success('Session booked successfully!');
         navigate('/my-bookings');
+      } else if (res.data.message) {
+        toast.error(res.data.message); // For duplicate or other server validation
       }
     } catch (err) {
       toast.error(err?.response?.data?.message || 'Booking failed.');
     }
   };
+  
 
   console.log("User:", user);
-console.log("Role:", user?.role);
+  console.log("Role from hook:", role);
+
 
 console.log("Session Data:", session);
 
@@ -97,7 +109,8 @@ console.log("Session Data:", session);
             <button disabled className="btn bg-gray-300 text-gray-700">
               Login to Book
             </button>
-          ) : user.role !== 'student' ? (
+        ) : !isLoading && role !== 'student' ? (
+
             <button disabled className="btn bg-gray-300 text-gray-700">
               Only Students Can Book
             </button>
@@ -109,7 +122,7 @@ console.log("Session Data:", session);
           ) : (
             <Link to={`/payment/${session._id}`}>
               <button className="btn btn-primary">
-                Book Now (৳{session.fee})
+                Book Now ($parseFloat{session.fee})
               </button>
             </Link>
           )

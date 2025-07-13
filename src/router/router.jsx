@@ -1,7 +1,7 @@
 import {
-    createBrowserRouter,
-    
-  } from "react-router";
+  createBrowserRouter,
+
+} from "react-router";
 import RootLayout from "../layouts/RootLayout";
 import Home from "../pages/Home/Home/Home";
 import AuthLayout from "../layouts/AuthLayout";
@@ -10,61 +10,65 @@ import SignUp from "../pages/Authentication/SignUp/SignUp";
 import StudySessions from "../pages/Home/StudySession/StudySessions";
 import PrivateRoute from "../routes/PrivateRoute";
 import StudySessionDetails from "../pages/StudySessionDetails/StudySessionDetails";
-import DashboardLsyout from "../layouts/DashboardLayout";
+
 import DashboardLayout from "../layouts/DashboardLayout";
-import MySessions from "../pages/Dashboard/MySessions/MySessions";
+import Payment from "../pages/Dashboard/Payment/Payment";
+import MyBookings from "../pages/Dashboard/MyBookings/MyBookings";
 
 
-  
+
 
 export const router = createBrowserRouter([
-    {
-      path: "/",
-  Component: RootLayout,
-  children: [
-    {
+  {
+    path: "/",
+    Component: RootLayout,
+    children: [
+      {
         index: true,
         Component: Home
-    },
-    
-    {
-path: '/study-sessions',
-Component: StudySessions,
+      },
 
-    },
-    {
-      path: '/study-sessions/:id',
-      element: <PrivateRoute>
-        <StudySessionDetails></StudySessionDetails>
+      {
+        path: '/study-sessions',
+        Component: StudySessions,
+
+      },
+      {
+        path: '/study-sessions/:id',
+        element: <PrivateRoute>
+          <StudySessionDetails></StudySessionDetails>
         </PrivateRoute>
 
-    }
-  ]
-    },
+      }
+    ]
+  },
 
-    {
-      path: '/',
-      Component: AuthLayout,
-      children: [
-        {
-          path: 'login',
-          Component: Login
-        },
-        {
-          path: 'signUp',
-          Component: SignUp
-        }
-      ]
-    },
+  {
+    path: '/',
+    Component: AuthLayout,
+    children: [
+      {
+        path: 'login',
+        Component: Login
+      },
+      {
+        path: 'signUp',
+        Component: SignUp
+      }
+    ]
+  },
 
-    {
-      path: '/dashboard',
-      element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
-      children: [
-{
-  path: 'my-bookings',
-  Component: MySessions
-}
-      ]
-    }
-  ]);
+  {
+    path: '/dashboard',
+    element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    children: [
+      {
+        path: 'my-bookings',
+        Component: MyBookings
+      }, {
+path: 'payment/:id',
+Component: Payment
+      }
+    ]
+  }
+]);
