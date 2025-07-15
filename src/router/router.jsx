@@ -14,6 +14,7 @@ import StudySessionDetails from "../pages/StudySessionDetails/StudySessionDetail
 import DashboardLayout from "../layouts/DashboardLayout";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import MyBookings from "../pages/Dashboard/MyBookings/MyBookings";
+import BookedSessionDetails from "../pages/Dashboard/MyBookings/BookedSessionDetails";
 
 
 
@@ -42,9 +43,8 @@ export const router = createBrowserRouter([
       },
       {
         path: '/payment/:sessionId',
-        element: <PrivateRoute><Payment /></PrivateRoute>
-      }
-      
+        Component: Payment
+              }
     ]
   },
 
@@ -71,6 +71,10 @@ export const router = createBrowserRouter([
         path: 'my-bookings',
         Component: MyBookings
       },
+      {
+        path:"/dashboard/booked-sessions/:id",
+        Component: BookedSessionDetails
+      }
     ]
   }
 ]);

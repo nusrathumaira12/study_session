@@ -37,7 +37,7 @@ const MyBookings = () => {
               <p><strong>Booked On:</strong> {new Date(booking.bookingDate).toLocaleDateString()}</p>
               <p><strong>Fee Paid:</strong> {booking.feePaid === 0 ? 'Free' : `৳${booking.feePaid}`}</p>
 
-              <Link to={`/study-sessions/${booking.sessionId}`}>
+              <Link to={`/dashboard/booked-sessions/${booking._id}`}>
                 <button className="mt-4 btn btn-primary w-full">View Details & Review</button>
               </Link>
             </div>

@@ -11,12 +11,11 @@ const StudySessionDetails = () => {
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const {role, isLoading} = useUserRole(user?.email)
-
-  const [session, setSession] = useState(null);
+const [session, setSession] = useState(null);
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    // Fetch session by ID
+  
     axiosSecure.get(`/sessions/${id}`)
       .then(res => setSession(res.data));
 
@@ -55,6 +54,7 @@ const StudySessionDetails = () => {
       tutorEmail: session.tutorEmail,
       bookingDate: new Date().toISOString(),
       feePaid: 0
+      
     };
     
   
@@ -65,7 +65,7 @@ const StudySessionDetails = () => {
   
       if (res.data.insertedId) {
         toast.success('Session booked successfully!');
-        navigate('/my-bookings');
+        navigate('/dashboard/my-bookings');
       } else if (res.data.message) {
         toast.error(res.data.message); // For duplicate or other server validation
       }
