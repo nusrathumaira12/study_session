@@ -42,8 +42,9 @@ export const router = createBrowserRouter([
       },
       {
         path: '/payment/:sessionId',
-        Component: Payment
-              }
+        element: <PrivateRoute><Payment /></PrivateRoute>
+      }
+      
     ]
   },
 

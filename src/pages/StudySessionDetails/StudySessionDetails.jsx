@@ -51,11 +51,12 @@ const StudySessionDetails = () => {
     const bookingData = {
       sessionId: session._id,
       sessionTitle: session.title,
-      studentEmail: user.email,
+      studentEmail: user.email, // ✅ studentEmail = user.email
       tutorEmail: session.tutorEmail,
       bookingDate: new Date().toISOString(),
       feePaid: 0
     };
+    
   
     try {
       const res = await axiosSecure.post('/bookedSessions', bookingData);
