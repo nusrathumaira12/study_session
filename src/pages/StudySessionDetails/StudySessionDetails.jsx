@@ -80,6 +80,7 @@ const StudySessionDetails = () => {
 
 console.log("Session Data:", session);
 
+console.log("Session Fee:", session.registrationFee);
 
 
 
@@ -96,7 +97,15 @@ console.log("Session Data:", session);
         <p><strong>Class Start:</strong> {new Date(session.classStart).toLocaleString()}</p>
         <p><strong>Class End:</strong> {new Date(session.classEnd).toLocaleString()}</p>
         <p><strong>Duration:</strong> {sessionDuration()}</p>
-        <p><strong>Registration Fee:</strong> {session.fee === 0 ? 'Free' : `৳${session.fee}`}</p>
+        <p><strong>Registration Fee:</strong> 
+  {
+    typeof session.registrationFee === 'number'
+      ? (session.registrationFee === 0 ? 'Free' : `${session.registrationFee}BDT`)
+      : 'Not specified'
+  }
+</p>
+
+
       </div>
 
       <div className="mb-6">
@@ -114,17 +123,16 @@ console.log("Session Data:", session);
             <button disabled className="btn bg-gray-300 text-gray-700">
               Only Students Can Book
             </button>
-          ) : parseFloat(session.fee) === 0
+          ) : parseFloat(session.registrationFee) === 0
+
           ? (
             <button onClick={handleFreeBooking} className="btn btn-success">
               Book Now (Free)
             </button>
           ) : (
-            <Link to={`/payment/${session._id}`}>
-              <button className="btn btn-primary">
-                Book Now ($parseFloat{session.fee})
-              </button>
-            </Link>
+            <button onClick={() => navigate(`/payment/${session._id}`)} className="btn btn-primary">
+        Book Now ({session.registrationFee}BDT)
+      </button>
           )
         }
       </div>

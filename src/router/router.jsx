@@ -39,7 +39,11 @@ export const router = createBrowserRouter([
           <StudySessionDetails></StudySessionDetails>
         </PrivateRoute>
 
-      }
+      },
+      {
+        path: '/payment/:sessionId',
+        Component: Payment
+              }
     ]
   },
 
@@ -65,10 +69,7 @@ export const router = createBrowserRouter([
       {
         path: 'my-bookings',
         Component: MyBookings
-      }, {
-path: 'payment/:id',
-Component: Payment
-      }
+      },
     ]
   }
 ]);
