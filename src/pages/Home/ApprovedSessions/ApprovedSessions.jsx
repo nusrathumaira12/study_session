@@ -30,6 +30,7 @@ const ApprovedSessions = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {sessions.map((session) => (
           <div key={session._id} className="bg-white shadow-lg rounded-md p-5 border">
+             <img src={session.image} alt={session.title} className="w-full h-60 object-cover rounded-md mb-4" />
             <h3 className="text-xl font-semibold text-blue-700 mb-2">{session.title}</h3>
             <p className="text-gray-600 mb-3">
               {session.description?.slice(0, 100)}...
