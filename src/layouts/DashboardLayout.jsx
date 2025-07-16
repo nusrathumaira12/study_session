@@ -43,6 +43,8 @@ const DashboardLayout = () => {
       <Logo></Logo>
       <li><a>Home</a></li>
       <li><NavLink to="/dashboard/my-bookings">My Bookings</NavLink></li>
+      <li><NavLink to="/dashboard/create-note">Create Note</NavLink></li>
+      <li><NavLink to="/dashboard/manage-notes">Manage Personal Notes</NavLink></li>
     </ul>
   </div>
 </div>

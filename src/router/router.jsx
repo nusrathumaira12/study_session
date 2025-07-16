@@ -15,6 +15,9 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import MyBookings from "../pages/Dashboard/MyBookings/MyBookings";
 import BookedSessionDetails from "../pages/Dashboard/MyBookings/BookedSessionDetails";
+import CreateNote from "../pages/Dashboard/CreateNote/CreateNote";
+import ManageNotes from "../pages/Dashboard/ManageNote/ManageNote";
+
 
 
 
@@ -74,6 +77,14 @@ export const router = createBrowserRouter([
       {
         path:"/dashboard/booked-sessions/:id",
         Component: BookedSessionDetails
+      },
+      {
+        path: "create-note",
+        Component: CreateNote
+      },{
+        path: 'manage-notes',
+        Component: ManageNotes
+
       }
     ]
   }
