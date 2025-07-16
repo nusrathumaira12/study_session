@@ -45,6 +45,14 @@ const DashboardLayout = () => {
       <li><NavLink to="/dashboard/my-bookings">My Bookings</NavLink></li>
       <li><NavLink to="/dashboard/create-note">Create Note</NavLink></li>
       <li><NavLink to="/dashboard/manage-notes">Manage Personal Notes</NavLink></li>
+      <li><NavLink to="/dashboard/study-materials" className={({ isActive }) =>
+    isActive
+      ? 'btn btn-primary w-full mb-2'
+      : 'btn btn-outline w-full mb-2'
+}
+  > View All Study Materials</NavLink></li>
+     
+
     </ul>
   </div>
 </div>

@@ -17,6 +17,8 @@ import MyBookings from "../pages/Dashboard/MyBookings/MyBookings";
 import BookedSessionDetails from "../pages/Dashboard/MyBookings/BookedSessionDetails";
 import CreateNote from "../pages/Dashboard/CreateNote/CreateNote";
 import ManageNotes from "../pages/Dashboard/ManageNote/ManageNote";
+import StudyMaterials from "../pages/Dashboard/StudyMaterials/StudyMaterials";
+import TutorsPage from "../pages/Tutors/Tutors";
 
 
 
@@ -31,7 +33,10 @@ export const router = createBrowserRouter([
         index: true,
         Component: Home
       },
-
+{
+path: '/tutors',
+Component: TutorsPage
+},
       {
         path: '/study-sessions',
         Component: StudySessions,
@@ -85,7 +90,12 @@ export const router = createBrowserRouter([
         path: 'manage-notes',
         Component: ManageNotes
 
+      },{
+        path: '/dashboard/study-materials',
+       Component: StudyMaterials
       }
+      
+      
     ]
   }
 ]);
