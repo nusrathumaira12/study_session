@@ -4,11 +4,12 @@ import Logo from '../Logo/Logo';
 import useAuth from '../../../hooks/useAuth';
 
 import defaultPic from '../../../assets/default.jpg'
+import useUserRole from '../../../hooks/useUserRole';
 
 const Navbar = () => {
   const {user, logOut} = useAuth()
 
-
+  const { role, isLoading } = useUserRole(user?.email);
 
   const handleLogout = () => {
     logOut()
@@ -35,14 +36,27 @@ const Navbar = () => {
         }
        
        >Study Sessions</NavLink></li>
-       {user && (
-        <li><NavLink to="/dashboard"
-        className={({ isActive }) =>
-          isActive ? 'text-blue-500 font-semibold' : 'text-black font-semibold dark:text-white'
-        }
-        
-        >Dashboard</NavLink></li>
-      )}
+     {user && !isLoading && (
+  <li>
+    <NavLink
+      to={
+        role === 'admin'
+          ? '/admin-dashboard'
+          : role === 'tutor'
+          ? '/tutor-dashboard'
+          : '/dashboard'
+      }
+      className={({ isActive }) =>
+        isActive
+          ? 'text-blue-500 font-semibold'
+          : 'text-black font-semibold dark:text-white'
+      }
+    >
+      Dashboard
+    </NavLink>
+  </li>
+)}
+
       </>
     )
   

@@ -21,6 +21,9 @@ import StudyMaterials from "../pages/Dashboard/StudyMaterials/StudyMaterials";
 import TutorsPage from "../pages/Tutors/Tutors";
 import TutorDashboardLayout from "../layouts/TutorDashboardLayout";
 import CreateStudySession from "../pages/Dashboard/CreateStudySession/CreateStudySession";
+import TutorSessions from "../pages/Dashboard/TutorSession/TutorSessions";
+import UploadMaterials from "../pages/Dashboard/UploadMaterials/UploadMaterials";
+import TutorAllMaterials from "../pages/Dashboard/TutorAllMaterials/TutorAllMaterials";
 
 
 
@@ -103,7 +106,7 @@ Component: TutorsPage
 
   {
     path: "/tutor-dashboard",
-    Component: <PrivateRoute allowedRoles={['tutor']}>
+    element: <PrivateRoute allowedRoles={['tutor']}>
       <TutorDashboardLayout></TutorDashboardLayout>
       </PrivateRoute>,
       children: [
@@ -111,18 +114,18 @@ Component: TutorsPage
           path: 'create-session',
           Component: CreateStudySession,
         },
-        { path: 'my-sessions', Component: ViewMySessions },
+        { path: 'my-sessions', Component: TutorSessions },
         { path: 'upload-materials', Component: UploadMaterials },
-    { path: 'all-materials', Component: ViewMaterials }
+    { path: 'all-materials', Component: TutorAllMaterials }
       ]
   },
-  {
-    path: '/admin-dashboard',
-    element: <PrivateRoute allowedRoles={['admin']}><AdminDashboardLayout /></PrivateRoute>,
-    children: [
-      { path: 'users', Component: ManageUsers },
-      { path: 'sessions', Component: ManageSessions },
-      // etc.
-    ]
-  }
+  // {
+  //   path: '/admin-dashboard',
+  //   element: <PrivateRoute allowedRoles={['admin']}><AdminDashboardLayout /></PrivateRoute>,
+  //   children: [
+  //     { path: 'users', Component: ManageUsers },
+  //     { path: 'sessions', Component: ManageSessions },
+  //     // etc.
+  //   ]
+  // }
 ]);

@@ -6,9 +6,10 @@ const PrivateRoute = ({ children, allowedRoles }) => {
   const { user, loading } = useAuth();
   const { role, isLoading: roleLoading } = useUserRole(user?.email);
   const location = useLocation();
+
   console.log('Current role:', role);
   console.log('Allowed:', allowedRoles);
-  
+
   if (loading || roleLoading) return <div className="text-center mt-10">Loading...</div>;
 
   if (!user) {
