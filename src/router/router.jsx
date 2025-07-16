@@ -24,6 +24,10 @@ import CreateStudySession from "../pages/Dashboard/CreateStudySession/CreateStud
 import TutorSessions from "../pages/Dashboard/TutorSession/TutorSessions";
 import UploadMaterials from "../pages/Dashboard/UploadMaterials/UploadMaterials";
 import TutorAllMaterials from "../pages/Dashboard/TutorAllMaterials/TutorAllMaterials";
+import AdminDashboardLayout from "../layouts/AdminDashboardLayout";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import AllStudySessions from "../pages/Dashboard/AllStusySessions/AllStudySessions";
+import AllMaterials from "../pages/Dashboard/AllMaterials/AllMaterials";
 
 
 
@@ -119,13 +123,18 @@ Component: TutorsPage
     { path: 'all-materials', Component: TutorAllMaterials }
       ]
   },
-  // {
-  //   path: '/admin-dashboard',
-  //   element: <PrivateRoute allowedRoles={['admin']}><AdminDashboardLayout /></PrivateRoute>,
-  //   children: [
-  //     { path: 'users', Component: ManageUsers },
-  //     { path: 'sessions', Component: ManageSessions },
-  //     // etc.
-  //   ]
-  // }
+  {
+    path: '/admin-dashboard',
+    element: (
+      <PrivateRoute allowedRoles={['admin']}>
+        <AdminDashboardLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      { path: 'users', Component: AllUsers },
+      { path: 'sessions', Component: AllStudySessions },
+      { path: 'materials', Component: AllMaterials }
+    ]
+  }
+  
 ]);

@@ -3,6 +3,7 @@ import React from 'react';
 import { Outlet, NavLink } from 'react-router';
 import useAuth from '../hooks/useAuth';
 import useUserRole from '../hooks/useUserRole';
+import Logo from '../pages/shared/Logo/Logo';
 
 const TutorDashboardLayout = () => {
   const { user } = useAuth();
@@ -14,12 +15,14 @@ const TutorDashboardLayout = () => {
   return (
     <div className="flex">
       <aside className="w-64 min-h-screen bg-gray-100 p-4">
-        <h2 className="text-2xl font-bold mb-6 text-blue-600">Tutor Dashboard</h2>
+      <Logo size={2}></Logo>
+      <h2 className="text-2xl font-bold mb-5 mt-12 text-blue-600">Tutor Dashboard</h2>
+       
         <nav className="space-y-3 flex flex-col">
-          <NavLink to="create-session" className={({ isActive }) => isActive ? 'text-blue-600 font-bold w-full p-2 rounded-xl text-center bg-white' : 'font-bold w-full p-2 rounded-xl text-center bg-white'}>Create Study Session</NavLink>
-          <NavLink to="my-sessions" className={({ isActive }) => isActive ? 'text-blue-600 font-bold w-full p-2 rounded-xl text-center bg-white' : 'font-bold w-full p-2 rounded-xl text-center bg-white'}>My Sessions</NavLink>
-          <NavLink to="upload-materials" className={({ isActive }) => isActive ? 'text-blue-600 font-bold w-full p-2 rounded-xl text-center bg-white' : 'font-bold w-full p-2 rounded-xl text-center bg-white'}>Upload Materials</NavLink>
-          <NavLink to="view-materials" className={({ isActive }) => isActive ? 'text-blue-600 font-bold w-full p-2 rounded-xl text-center bg-white' : 'font-bold w-full p-2 rounded-xl text-center bg-white'}>View Materials</NavLink>
+          <NavLink to="create-session" className={({ isActive }) => isActive ? 'text-blue-600 font-bold mb-5 w-full p-2 rounded-xl text-center bg-white' : 'font-bold mb-5 w-full p-2 rounded-xl text-center bg-white'}>Create Study Session</NavLink>
+          <NavLink to="my-sessions" className={({ isActive }) => isActive ? 'text-blue-600 font-bold w-full mb-5 p-2 rounded-xl text-center bg-white' : 'font-bold w-full mb-5 p-2 rounded-xl text-center bg-white'}>My Sessions</NavLink>
+          <NavLink to="upload-materials" className={({ isActive }) => isActive ? 'text-blue-600 font-bold mb-5 w-full p-2 rounded-xl text-center bg-white' : 'font-bold w-full mb-5 p-2 rounded-xl text-center bg-white'}>Upload Materials</NavLink>
+          <NavLink to="all-materials" className={({ isActive }) => isActive ? 'text-blue-600 font-bold mb-5 w-full p-2 rounded-xl text-center bg-white' : 'font-bold w-full mb-5 p-2 rounded-xl text-center bg-white'}>View All Materials</NavLink>
         </nav>
       </aside>
 
