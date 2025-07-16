@@ -19,6 +19,8 @@ import CreateNote from "../pages/Dashboard/CreateNote/CreateNote";
 import ManageNotes from "../pages/Dashboard/ManageNote/ManageNote";
 import StudyMaterials from "../pages/Dashboard/StudyMaterials/StudyMaterials";
 import TutorsPage from "../pages/Tutors/Tutors";
+import TutorDashboardLayout from "../layouts/TutorDashboardLayout";
+import CreateStudySession from "../pages/Dashboard/CreateStudySession/CreateStudySession";
 
 
 
@@ -73,7 +75,7 @@ Component: TutorsPage
 
   {
     path: '/dashboard',
-    element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    element: <PrivateRoute allowedRoles={['student']}><DashboardLayout></DashboardLayout></PrivateRoute>,
     children: [
       {
         path: 'my-bookings',
@@ -96,6 +98,31 @@ Component: TutorsPage
       }
       
       
+    ]
+  },
+
+  {
+    path: "/tutor-dashboard",
+    Component: <PrivateRoute allowedRoles={['tutor']}>
+      <TutorDashboardLayout></TutorDashboardLayout>
+      </PrivateRoute>,
+      children: [
+        {
+          path: 'create-session',
+          Component: CreateStudySession,
+        },
+        { path: 'my-sessions', Component: ViewMySessions },
+        { path: 'upload-materials', Component: UploadMaterials },
+    { path: 'all-materials', Component: ViewMaterials }
+      ]
+  },
+  {
+    path: '/admin-dashboard',
+    element: <PrivateRoute allowedRoles={['admin']}><AdminDashboardLayout /></PrivateRoute>,
+    children: [
+      { path: 'users', Component: ManageUsers },
+      { path: 'sessions', Component: ManageSessions },
+      // etc.
     ]
   }
 ]);

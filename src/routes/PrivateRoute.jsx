@@ -1,20 +1,25 @@
-import React from 'react';
-import useAuth from '../hooks/useAuth';
 import { Navigate, useLocation } from 'react-router';
+import useAuth from '../hooks/useAuth';
+import useUserRole from '../hooks/useUserRole';
 
-const PrivateRoute = ({children}) => {
-    const {user,loading} = useAuth()
-    const location = useLocation()
-    console.log(location)
+const PrivateRoute = ({ children, allowedRoles }) => {
+  const { user, loading } = useAuth();
+  const { role, isLoading: roleLoading } = useUserRole(user?.email);
+  const location = useLocation();
+  console.log('Current role:', role);
+  console.log('Allowed:', allowedRoles);
+  
+  if (loading || roleLoading) return <div className="text-center mt-10">Loading...</div>;
 
-    if (loading){
-        return <span className='loading loading-spinner loading-xl'></span>
-    }
+  if (!user) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
 
-    if(!user){
-     return <Navigate state={{ from: location.pathname}} to="/login"></Navigate>
-    }
-    return children;
+  if (allowedRoles && !allowedRoles.includes(role)) {
+    return <div className="text-center text-red-500 mt-10">Access Denied</div>;
+  }
+
+  return children;
 };
 
 export default PrivateRoute;
