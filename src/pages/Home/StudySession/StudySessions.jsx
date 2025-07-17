@@ -7,7 +7,7 @@ const StudySessions = () => {
 
   // ✅ API call to backend
   useEffect(() => {
-    fetch('http://localhost:5001/sessions')
+    fetch('https://student-collaborative-server.vercel.app/sessions')
       .then(res => res.json())
       .then(data => setSessions(data))
       .catch(error => console.error('Error fetching sessions:', error));

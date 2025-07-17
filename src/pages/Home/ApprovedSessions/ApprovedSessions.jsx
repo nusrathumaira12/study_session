@@ -6,7 +6,7 @@ const ApprovedSessions = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:5001/sessions') // <-- replace with your real API
+    fetch('https://student-collaborative-server.vercel.app/sessions') // <-- replace with your real API
       .then(res => res.json())
       .then(data => {
         const approved = data
