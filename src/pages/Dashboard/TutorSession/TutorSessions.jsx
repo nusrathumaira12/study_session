@@ -40,13 +40,21 @@ const TutorSessions = () => {
             <p>End Date: {session.classEnd}</p>
 
             {session.status === 'rejected' && (
-              <button
-                onClick={() => handleResendRequest(session._id)}
-                className="btn btn-sm btn-warning mt-2"
-              >
-                Resend for Approval
-              </button>
-            )}
+  <div className="mt-2">
+    {session.feedback && (
+      <p className="text-red-500 font-medium">
+        📝 Feedback: {session.feedback}
+      </p>
+    )}
+    <button
+      onClick={() => handleResendRequest(session._id)}
+      className="btn btn-sm btn-warning mt-2"
+    >
+      Resend for Approval
+    </button>
+  </div>
+)}
+
           </div>
         ))}
       </div>

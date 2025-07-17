@@ -27,7 +27,8 @@ if(isPending){
     return '...loading'
 }
 
-const amount = sessionInfo.registrationFee
+const amount = Number(sessionInfo.registrationFee); // ensure it's a number
+
 
     const handleSubmit = async(e) => {
         e.preventDefault()
@@ -51,10 +52,10 @@ const amount = sessionInfo.registrationFee
             setError('')
             console.log('payment Method', paymentMethod)
 
-            const res = await axiosSecure.post('/create-payment-intent',{
-                amount,
-                sessionId
-            })
+            
+                const res = await axiosSecure.post('/create-payment-intent', { amount });
+              
+              
             
             const clientSecret = res.data.clientSecret
             

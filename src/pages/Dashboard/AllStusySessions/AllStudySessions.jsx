@@ -1,3 +1,4 @@
+
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { useState } from 'react';
@@ -8,6 +9,10 @@ const AllStudySessions = () => {
   const queryClient = useQueryClient();
   const [selectedSession, setSelectedSession] = useState(null);
   const [fee, setFee] = useState(0);
+  const [rejectModalOpen, setRejectModalOpen] = useState(false);
+const [rejectReason, setRejectReason] = useState('');
+const [rejectFeedback, setRejectFeedback] = useState('');
+
 
   // ✅ Get all study sessions
   const { data: sessions = [], isLoading } = useQuery({
@@ -33,14 +38,37 @@ const AllStudySessions = () => {
 
   // ✅ Reject Session
   const rejectMutation = useMutation({
-    mutationFn: async (id) => {
-      return await axiosSecure.patch(`/study-sessions/reject/${id}`);
+    mutationFn: async ({ id, reason, feedback }) => {
+      return await axiosSecure.patch(`/study-sessions/reject/${id}`, {
+        reason,
+        feedback,
+      });
     },
     onSuccess: () => {
       queryClient.invalidateQueries(['allStudySessions']);
       Swal.fire('Rejected', 'Session has been rejected.', 'info');
+      setRejectModalOpen(false);
+      setSelectedSession(null);
     }
   });
+
+  const handleRejectClick = (session) => {
+    setSelectedSession(session);
+    setRejectModalOpen(true);
+  };
+  
+  const submitRejection = () => {
+    if (!rejectReason.trim()) {
+      return Swal.fire('Required', 'Rejection reason is required.', 'warning');
+    }
+    rejectMutation.mutate({
+      id: selectedSession._id,
+      reason: rejectReason,
+      feedback: rejectFeedback,
+    });
+  };
+  
+  
 
   // ✅ Delete Session
   const deleteSession = async (id) => {
@@ -85,7 +113,8 @@ const AllStudySessions = () => {
             {session.status === 'pending' && (
               <div className="flex gap-2 mt-2">
                 <button onClick={() => handleApprove(session)} className="btn btn-sm btn-success">Approve</button>
-                <button onClick={() => rejectMutation.mutate(session._id)} className="btn btn-sm btn-error">Reject</button>
+                <button onClick={() => handleRejectClick(session)} className="btn btn-sm btn-error">Reject</button>
+
               </div>
             )}
 
@@ -125,6 +154,36 @@ const AllStudySessions = () => {
           </div>
         </div>
       )}
+      {rejectModalOpen && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="bg-white p-6 rounded shadow-lg w-96 space-y-4">
+      <h3 className="text-lg font-semibold">Reject Session</h3>
+      
+      <label className="block text-sm">Rejection Reason <span className="text-red-500">*</span></label>
+      <input
+        type="text"
+        value={rejectReason}
+        onChange={(e) => setRejectReason(e.target.value)}
+        className="input w-full"
+        placeholder="e.g. Incomplete details"
+      />
+
+      <label className="block text-sm">Feedback (optional)</label>
+      <textarea
+        value={rejectFeedback}
+        onChange={(e) => setRejectFeedback(e.target.value)}
+        className="textarea w-full"
+        placeholder="Give suggestions for improvement"
+      />
+
+      <div className="flex justify-end gap-2">
+        <button className="btn btn-sm" onClick={() => setRejectModalOpen(false)}>Cancel</button>
+        <button className="btn btn-sm btn-error" onClick={submitRejection}>Reject</button>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
