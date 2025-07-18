@@ -23,7 +23,7 @@ const UploadMaterials = () => {
 
   // Upload image to ImgBB and get URL
   const uploadImageToImgBB = async (file) => {
-    const apiKey = 'YOUR_IMGBB_API_KEY'; // Replace with your ImgBB API key
+    const apiKey = '7fcf185cc05295c60741df3c356de180'; 
     const formData = new FormData();
     formData.append('image', file);
 
@@ -116,7 +116,7 @@ const UploadMaterials = () => {
           <input
             type="file"
             accept="image/*"
-            onChange={(e) => setImageFile(e.target.files[0])}
+            onChange={(e) => setImageFile(e.target.files[0])} className="input input-bordered w-full"
           />
         </label>
 

@@ -30,6 +30,7 @@ import AllStudySessions from "../pages/Dashboard/AllStusySessions/AllStudySessio
 import AllMaterials from "../pages/Dashboard/AllMaterials/AllMaterials";
 import StudentDashboardHome from "../pages/Dashboard/StudentHome/StudentHome";
 import AdminDashboardHome from "../pages/Dashboard/AdminHome/AdminHome";
+import TutorDashboardHome from "../pages/Dashboard/TutorDashboardHome/TutorDashboardHome";
 
 
 
@@ -120,6 +121,10 @@ Component: TutorsPage
       <TutorDashboardLayout></TutorDashboardLayout>
       </PrivateRoute>,
       children: [
+        {
+          path: '/tutor-dashboard',
+          Component: TutorDashboardHome,
+        },
         {
           path: 'create-session',
           Component: CreateStudySession,

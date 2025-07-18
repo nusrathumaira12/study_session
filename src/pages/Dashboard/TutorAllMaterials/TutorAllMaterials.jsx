@@ -13,7 +13,7 @@ const TutorAllMaterials = () => {
 
   useEffect(() => {
     if (user?.email) {
-      axiosSecure.get(`/materials/${user.email}`)
+      axiosSecure.get(`/tutor/approved-sessions/${user.email}`)
         .then(res => setMaterials(res.data))
         .catch(err => console.error(err));
     }

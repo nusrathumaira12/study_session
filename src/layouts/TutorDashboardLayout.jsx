@@ -1,9 +1,9 @@
-// TutorDashboardLayout.jsx
 import React from 'react';
-import { Outlet, NavLink } from 'react-router';
+import { Outlet, NavLink } from 'react-router'; // Use react-router-dom not react-router
 import useAuth from '../hooks/useAuth';
 import useUserRole from '../hooks/useUserRole';
 import Logo from '../pages/shared/Logo/Logo';
+import { FaChalkboardTeacher, FaPlus, FaListAlt, FaUpload, FaBookOpen } from 'react-icons/fa';
 
 const TutorDashboardLayout = () => {
   const { user } = useAuth();
@@ -13,20 +13,86 @@ const TutorDashboardLayout = () => {
   if (role !== 'tutor') return <p className="text-red-500 text-center mt-10">Access denied. Tutor only.</p>;
 
   return (
-    <div className="flex">
-      <aside className="w-64 min-h-screen bg-gray-100 p-4">
-      <Logo size={2}></Logo>
-      <h2 className="text-2xl font-bold mb-5 mt-12 text-blue-600">Tutor Dashboard</h2>
-       
-        <nav className="space-y-3 flex flex-col">
-          <NavLink to="create-session" className={({ isActive }) => isActive ? 'text-blue-600 font-bold mb-5 w-full p-2 rounded-xl text-center bg-white' : 'font-bold mb-5 w-full p-2 rounded-xl text-center bg-white'}>Create Study Session</NavLink>
-          <NavLink to="my-sessions" className={({ isActive }) => isActive ? 'text-blue-600 font-bold w-full mb-5 p-2 rounded-xl text-center bg-white' : 'font-bold w-full mb-5 p-2 rounded-xl text-center bg-white'}>My Sessions</NavLink>
-          <NavLink to="upload-materials" className={({ isActive }) => isActive ? 'text-blue-600 font-bold mb-5 w-full p-2 rounded-xl text-center bg-white' : 'font-bold w-full mb-5 p-2 rounded-xl text-center bg-white'}>Upload Materials</NavLink>
-          <NavLink to="all-materials" className={({ isActive }) => isActive ? 'text-blue-600 font-bold mb-5 w-full p-2 rounded-xl text-center bg-white' : 'font-bold w-full mb-5 p-2 rounded-xl text-center bg-white'}>View All Materials</NavLink>
-        </nav>
+    <div className="flex min-h-screen bg-gray-50">
+      {/* Sidebar */}
+      <aside className="w-64 bg-white shadow-lg p-6 flex flex-col justify-between">
+        <div>
+          <Logo size={2} />
+          <nav className="mt-8 space-y-2">
+            <NavLink
+              to="/tutor-dashboard"
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-4 py-2 rounded-lg transition duration-200 ${
+                  isActive
+                    ? 'bg-blue-100 text-blue-700 font-semibold'
+                    : 'text-gray-700 hover:bg-gray-100'
+                }`
+              }
+            >
+              <FaChalkboardTeacher /> Dashboard
+            </NavLink>
+
+            <NavLink
+              to="create-session"
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-4 py-2 rounded-lg transition duration-200 ${
+                  isActive
+                    ? 'bg-blue-100 text-blue-700 font-semibold'
+                    : 'text-gray-700 hover:bg-gray-100'
+                }`
+              }
+            >
+              <FaPlus /> Create Session
+            </NavLink>
+
+            <NavLink
+              to="my-sessions"
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-4 py-2 rounded-lg transition duration-200 ${
+                  isActive
+                    ? 'bg-blue-100 text-blue-700 font-semibold'
+                    : 'text-gray-700 hover:bg-gray-100'
+                }`
+              }
+            >
+              <FaListAlt /> My Sessions
+            </NavLink>
+
+            <NavLink
+              to="upload-materials"
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-4 py-2 rounded-lg transition duration-200 ${
+                  isActive
+                    ? 'bg-blue-100 text-blue-700 font-semibold'
+                    : 'text-gray-700 hover:bg-gray-100'
+                }`
+              }
+            >
+              <FaUpload /> Upload Materials
+            </NavLink>
+
+            <NavLink
+              to="all-materials"
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-4 py-2 rounded-lg transition duration-200 ${
+                  isActive
+                    ? 'bg-blue-100 text-blue-700 font-semibold'
+                    : 'text-gray-700 hover:bg-gray-100'
+                }`
+              }
+            >
+              <FaBookOpen /> View Materials
+            </NavLink>
+          </nav>
+        </div>
+
+        <div className="text-center text-xs text-gray-400 mt-8">
+          Tutor Dashboard © {new Date().getFullYear()}
+        </div>
       </aside>
 
-      <main className="flex-1 p-8 bg-white min-h-screen">
+      {/* Main Content */}
+      <main className="flex-1 p-6">
         <Outlet />
       </main>
     </div>
