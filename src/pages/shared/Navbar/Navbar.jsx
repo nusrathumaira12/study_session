@@ -67,7 +67,7 @@ const Navbar = () => {
         <div className="navbar sticky top-0 z-50 bg-base-200  shadow-sm">
   <div className="navbar-start">
     <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden -ml-4">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
       </div>
       <ul
@@ -80,7 +80,7 @@ const Navbar = () => {
 
       </ul>
     </div>
-    <div className="btn btn-ghost text-xl">
+    <div className="btn btn-ghost text-xl -ml-7 md:ml-0">
   <Logo />
 </div>
   </div>
@@ -111,7 +111,7 @@ const Navbar = () => {
 <>
 
 
-<NavLink to="/login"  className="btn bg-white mr-1 px-5 font-semibold">LogIn</NavLink>
+<NavLink to="/login"  className="btn btn-outline border-blue-600  text-blue-600 bg-white mr-1 px-5 font-semibold">LogIn</NavLink>
 <NavLink to="/signUp" className="btn bg-blue-500  text-white font-semibold">Sign Up</NavLink>
 
 

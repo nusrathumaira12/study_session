@@ -7,7 +7,7 @@ const Logo = () => {
        <Link to="/">
         <div className='flex items-center'>
             <img src={logo} className='w-8 h-8' alt="" />
-            <p className='text-2xl text-black font-bold'>Brain<span className=''>B</span>uddy</p>
+            <p className='text-2xl text-black font-bold dark:text-blue-400'>Brain<span className=''>B</span>uddy</p>
         </div>
        </Link>
     );

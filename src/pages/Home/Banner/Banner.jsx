@@ -40,7 +40,7 @@ const Banner = () => {
       loop={true}
       autoplay={{ delay: 2500, disableOnInteraction: false }}
       pagination={{ clickable: true }}
-      className="h-[650px]"
+      className="h-[580px]"
     >
       {slides.map((slide, index) => (
         <SwiperSlide key={index}>
@@ -52,7 +52,7 @@ const Banner = () => {
             <div className="absolute inset-0"></div>
 
             {/* Content */}
-            <div className="relative z-10 text-center max-w-4xl px-6 py-8 bg-black/50 rounded-xl text-white shadow-xl">
+            <div className="relative z-10 text-center max-w-3xl  px-6 py-8 bg-black/50 rounded-xl text-white shadow-xl">
 
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 {slide.title}

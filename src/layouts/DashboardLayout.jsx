@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router';
 import Logo from '../pages/shared/Logo/Logo';
-import Home from '../pages/Home/Home/Home';
+
 
 const DashboardLayout = () => {
     return (
@@ -27,30 +27,29 @@ const DashboardLayout = () => {
           </svg>
         </label>
       </div>
-      <div className="mx-2 flex-1 px-2 lg:hidden">Dashboard</div>
+      
     
     
     
   </div>
-  <Outlet></Outlet>
+  <Outlet>
+    
+  </Outlet>
     {/* Page content here */}
     
   </div>
   <div className="drawer-side">
     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-    <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+    
+    <ul className="menu bg-blue-400 text-base-content min-h-full w-80 p-4">
+    <Logo></Logo>
       {/* Sidebar content here */}
-      <Logo></Logo>
-      <li><a>Home</a></li>
-      <li><NavLink to="/dashboard/my-bookings">My Bookings</NavLink></li>
-      <li><NavLink to="/dashboard/create-note">Create Note</NavLink></li>
-      <li><NavLink to="/dashboard/manage-notes">Manage Personal Notes</NavLink></li>
-      <li><NavLink to="/dashboard/study-materials" className={({ isActive }) =>
-    isActive
-      ? 'btn btn-primary w-full mb-2'
-      : 'btn btn-outline w-full mb-2'
-}
-  > View All Study Materials</NavLink></li>
+      
+      <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? 'text-black font-bold my-5  w-full p-2 rounded-xl text-center bg-white' : 'font-bold mb-5 w-full p-2 rounded-xl text-center text-black bg-white'}>Home</NavLink></li>
+      <li><NavLink to="/dashboard/my-bookings" className={({ isActive }) => isActive ? 'text-blue-600 font-bold my-5 w-full p-2 rounded-xl text-center bg-white' : 'font-bold my-5 w-full p-2 rounded-xl text-center bg-white'}>My Bookings</NavLink></li>
+      <li><NavLink to="/dashboard/create-note" className={({ isActive }) => isActive ? 'text-blue-600 font-bold my-5 w-full p-2 rounded-xl text-center bg-white' : 'font-bold my-5 w-full p-2 rounded-xl text-center bg-white'}>Create Note</NavLink></li>
+      <li><NavLink to="/dashboard/manage-notes" className={({ isActive }) => isActive ? 'text-blue-600 font-bold my-5 w-full p-2 rounded-xl text-center bg-white' : 'font-bold my-5 w-full p-2 rounded-xl text-center bg-white'}>Manage Personal Notes</NavLink></li>
+      <li><NavLink to="/dashboard/study-materials" className={({ isActive }) => isActive ? 'text-blue-600 font-bold my-5 w-full p-2 rounded-xl text-center bg-white' : 'font-bold my-5 w-full p-2 rounded-xl text-center bg-white'} > View All Study Materials</NavLink></li>
      
 
     </ul>

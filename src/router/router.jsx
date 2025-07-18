@@ -28,6 +28,8 @@ import AdminDashboardLayout from "../layouts/AdminDashboardLayout";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import AllStudySessions from "../pages/Dashboard/AllStusySessions/AllStudySessions";
 import AllMaterials from "../pages/Dashboard/AllMaterials/AllMaterials";
+import StudentDashboardHome from "../pages/Dashboard/StudentHome/StudentHome";
+import AdminDashboardHome from "../pages/Dashboard/AdminHome/AdminHome";
 
 
 
@@ -85,6 +87,10 @@ Component: TutorsPage
     element: <PrivateRoute allowedRoles={['student']}><DashboardLayout></DashboardLayout></PrivateRoute>,
     children: [
       {
+        path: '/dashboard',
+        Component: StudentDashboardHome
+      },
+      {
         path: 'my-bookings',
         Component: MyBookings
       },
@@ -131,6 +137,8 @@ Component: TutorsPage
       </PrivateRoute>
     ),
     children: [
+
+      { path: '/admin-dashboard', Component: AdminDashboardHome },
       { path: 'users', Component: AllUsers },
       { path: 'sessions', Component: AllStudySessions },
       { path: 'materials', Component: AllMaterials }
