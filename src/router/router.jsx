@@ -36,6 +36,7 @@ import TutorDashboardHome from "../pages/Dashboard/TutorDashboardHome/TutorDashb
 
 
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -56,9 +57,8 @@ Component: TutorsPage
       },
       {
         path: '/study-sessions/:id',
-        element: <PrivateRoute>
-          <StudySessionDetails></StudySessionDetails>
-        </PrivateRoute>
+     Component: StudySessionDetails
+      
 
       },
       {
@@ -145,6 +145,8 @@ Component: TutorsPage
 
       { path: '/admin-dashboard', Component: AdminDashboardHome },
       { path: 'users', Component: AllUsers },
+     
+
       { path: 'sessions', Component: AllStudySessions },
       { path: 'materials', Component: AllMaterials }
     ]

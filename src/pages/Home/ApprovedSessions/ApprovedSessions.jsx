@@ -29,7 +29,7 @@ const ApprovedSessions = () => {
   };
 
   return (
-    <section className="py-10 px-5 md:px-10 lg:px-16 bg-base-100">
+    <section className="py-10 px-5 md:px-10 lg:px-16 bg-base-200">
       <h2 className="text-3xl font-semibold mt-2">Ready to reimagine your career?</h2>
       <p className="text-xl text-gray-600 mb-6">Here is your available Study Sessions</p>
 

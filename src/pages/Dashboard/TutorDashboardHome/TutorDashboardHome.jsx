@@ -99,9 +99,9 @@ const TutorDashboardHome = () => {
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold text-gray-800">{user?.displayName || 'Admin'}</h3>
             <p className="text-blue-600 font-bold">{user?.email}</p>
-            <p className="text-blue-600 mt-1 font-bold">Site Administrator</p>
+            <p className="text-blue-600 mt-1 font-bold">Role: Tutor</p>
             <p className="font-bold text-xl text-black mt-4">
-              Manage and monitor your platform effortlessly ⚙️
+            "Helping You Help Students Thrive."
             </p>
             <button
               onClick={handleLogout}

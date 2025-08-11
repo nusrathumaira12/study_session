@@ -2,8 +2,10 @@ import React from 'react';
 
 const Goals = () => {
     return (
-        <section class="bg-gray-100 py-16 px-6">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        <section class="bg-base-200 py-16 px-6">
+        <div data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine" class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
       
         
           <div class="lg:col-span-1">
@@ -47,7 +49,10 @@ const Goals = () => {
           </div>
       
          
-          <div className="bg-white p-4 pt-6 pb-10 rounded-2xl shadow-xl  border border-blue-500 hover:shadow-2xl transition-shadow duration-300 mt-10 group">
+          <div data-aos="fade-left"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500" className="bg-white p-4 pt-6 pb-10 rounded-2xl shadow-xl  border border-blue-500 hover:shadow-2xl transition-shadow duration-300 mt-10 group">
   <h3 className="text-2xl font-bold pb-6 text-blue-700 group-hover:text-blue-800 transition-colors duration-200">
     Certification Preparation
   </h3>

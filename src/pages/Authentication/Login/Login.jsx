@@ -75,7 +75,7 @@ const Login = () => {
 
         <div className="text-center text-sm text-gray-500">
           New to this website?{' '}
-          <Link to="/signUp" className="text-blue-500 hover:underline">Sign Up</Link>
+          <Link state={{from}} to="/signUp" className="text-blue-500 hover:underline">Sign Up</Link>
         </div>
 
         <div className="divider">OR</div>
