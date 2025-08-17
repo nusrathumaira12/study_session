@@ -41,7 +41,7 @@ const AllMaterials = () => {
       <h2 className="text-2xl font-bold mb-4">All Study Materials</h2>
       <div className="overflow-x-auto">
         <table className="table w-full">
-          <thead className="bg-gray-200">
+          <thead className="bg-gray-200 dark:bg-black">
             <tr>
               <th>#</th>
               <th>Title</th>

@@ -138,7 +138,7 @@ const TutorsPage = () => {
                   alt={tutor.tutorName}
                   className="w-20 h-20 mx-auto mb-3 rounded-full object-cover border"
                 />
-                <h3 className="text-lg font-semibold">{tutor.tutorName}</h3>
+                <h3 className="text-lg font-semibold dark:text-black">{tutor.tutorName}</h3>
                 <a
                   href={`mailto:${email}`}
                   className="text-sm text-blue-600 hover:underline block"

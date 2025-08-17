@@ -76,8 +76,8 @@ const StudySessionDetails = () => {
   return (
     <div className="max-w-5xl mx-auto p-6">
       <h2 className="text-3xl font-bold mb-2">{session.title}</h2>
-      <p className="text-gray-600"><strong>Tutor:</strong> {session.tutorName}</p>
-      <p className="text-gray-600 mb-4"><strong>Avg. Rating:</strong> ⭐ {session.averageRating || 'N/A'}</p>
+      <p className="text-gray-600 dark:text-white"><strong>Tutor:</strong> {session.tutorName}</p>
+      <p className="text-gray-600 mb-4 dark:text-white"><strong>Avg. Rating:</strong> ⭐ {session.averageRating || 'N/A'}</p>
       <p className="mb-6">{session.description}</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-base-100 border p-4 rounded-lg mb-6">
@@ -121,7 +121,7 @@ const StudySessionDetails = () => {
 
       {/* Reviews Section */}
       <div className="bg-white border rounded-lg p-4 shadow">
-        <h3 className="text-xl font-bold mb-3">Student Reviews</h3>
+        <h3 className="text-xl font-bold mb-3 dark:text-gray-900">Student Reviews</h3>
         {reviews.length > 0 ? (
           reviews.map((review, idx) => (
             <div key={idx} className="border-b py-3">

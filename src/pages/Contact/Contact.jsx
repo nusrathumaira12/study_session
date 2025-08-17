@@ -40,12 +40,12 @@ const Contact = () => {
   const hoverStyle = 'hover:shadow-xl hover:-translate-y-5 transition-all duration-500';
 
   return (
-    <div className="pb-20 px-4 pt-12 bg-base-200 flex flex-col items-center">
-      <h2 className="text-3xl font-bold mb-15 mt-10 dark:text-white">Contact US</h2>
+    <div className="pb-20 px-4 pt-5 bg-base-200 flex flex-col items-center rounded-lg">
+      <h2 className="text-3xl font-bold  mb-15 mt-10 dark:text-white"><span className='text-blue-500'>Contact</span> Us</h2>
 
       <motion.div
         {...sectionZoom}
-        className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-10 pt-5"
+        className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-10 pt-5 rounded-lg"
       >
        
         <div className={`bg-blue-500 text-white p-10 rounded shadow-md ${hoverStyle}`}>
@@ -84,7 +84,7 @@ const Contact = () => {
         </div>
 
        
-        <div className={`bg-white p-10 dark:bg-amber-200 rounded shadow-md ${hoverStyle}`}>
+        <div className={`bg-white p-10 dark:bg-white rounded shadow-md ${hoverStyle}`}>
           <h3 className="text-xl font-semibold mb-4 dark:text-black">Send Us a Message</h3>
           <form ref={form} onSubmit={sendEmail} className="space-y-4 dark:text-black">
             <input

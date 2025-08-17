@@ -27,14 +27,14 @@ const AdminDashboardLayout = () => {
       {/* Sidebar menu */}
       <div className="drawer-side">
         <label htmlFor="admin-drawer" className="drawer-overlay"></label>
-        <ul className="menu bg-blue-400 text-base-content min-h-full w-80 p-4">
+        <ul className="menu bg-blue-400 dark:bg-black text-base-content min-h-full w-80 p-4">
           <Logo />
           <li>
             <NavLink
               to="/admin-dashboard"
               className={({ isActive }) =>
                 isActive
-                  ? 'text-white bg-black  mt-15 font-bold my-5 w-full p-2 rounded-xl text-center'
+                  ? 'text-white bg-black dark:bg-white dark:text-black mt-15 font-bold my-5 w-full p-2 rounded-xl text-center'
                   : 'font-bold mb-5 w-full p-2 rounded-xl text-center text-black bg-black'
               }
             >
@@ -47,7 +47,7 @@ const AdminDashboardLayout = () => {
               className={({ isActive }) =>
                 isActive
                   ? 'text-blue-600 font-bold my-5 w-full p-2 rounded-xl text-center bg-white'
-                  : 'font-bold my-5 w-full p-2 rounded-xl text-center bg-white'
+                  : 'font-bold my-5 w-full p-2 rounded-xl text-center bg-white dark:bg-white dark:text-black'
               }
             >
               View All Users
@@ -60,7 +60,7 @@ const AdminDashboardLayout = () => {
               className={({ isActive }) =>
                 isActive
                   ? 'text-blue-600 font-bold my-5 w-full p-2 rounded-xl text-center bg-white'
-                  : 'font-bold my-5 w-full p-2 rounded-xl text-center bg-white'
+                  : 'font-bold my-5 w-full p-2 rounded-xl text-center bg-white dark:bg-white dark:text-black'
               }
             >
               View All Sessions
@@ -72,7 +72,7 @@ const AdminDashboardLayout = () => {
               className={({ isActive }) =>
                 isActive
                   ? 'text-blue-600 font-bold my-5 w-full p-2 rounded-xl text-center bg-white'
-                  : 'font-bold my-5 w-full p-2 rounded-xl text-center bg-white'
+                  : 'font-bold my-5 w-full p-2 rounded-xl text-center bg-white dark:bg-white dark:text-black'
               }
             >
               View All Materials

@@ -70,7 +70,7 @@ const BookedSessionDetails = () => {
   if (!booking) return <p className="text-center py-10">Loading session details...</p>;
 
   return (
-    <div className="max-w-5xl mx-auto p-6">
+    <div className="max-w-5xl mx-auto p-6 ">
       <h2 className="text-3xl font-bold mb-4">Booked Session Details</h2>
       <div className="bg-base-100 p-5 border rounded-md mb-6">
         <p><strong>Title:</strong> {booking.sessionTitle}</p>

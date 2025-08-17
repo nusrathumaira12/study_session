@@ -15,7 +15,7 @@ const Goals = () => {
            
               <div class="bg-white p-6 -mt-3 rounded-lg shadow">
                 <div class="mb-4 text-3xl">🛠️</div>
-                <h3 class="text-lg font-semibold mb-2">Hands-on training</h3>
+                <h3 class="text-lg font-semibold mb-2 dark:text-gray-900">Hands-on training</h3>
                 <p class="text-gray-600">Upskill effectively with AI-powered coding exercises, practice tests, and quizzes.</p>
               </div>
       
@@ -29,7 +29,7 @@ const Goals = () => {
        
               <div class="bg-white p-6 rounded-lg shadow">
                 <div class="mb-4 text-3xl">📈</div>
-                <h3 class="text-lg font-semibold mb-2">
+                <h3 class="text-lg font-semibold mb-2 dark:text-gray-900">
                   Insights and analytics 
                   <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded">Enterprise Plan</span>
                 </h3>
@@ -39,7 +39,7 @@ const Goals = () => {
            
               <div class="bg-white p-6  -pb-6 rounded-lg shadow">
                 <div class="mb-4 text-3xl">⚙️</div>
-                <h3 class="text-lg font-semibold mb-2">
+                <h3 class="text-lg font-semibold mb-2 dark:text-gray-900">
                   Customizable content 
                   <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded">Enterprise Plan</span>
                 </h3>

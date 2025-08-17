@@ -22,7 +22,7 @@ const About = () => {
       </motion.h1>
 
       {/* Top Section with Image + Text */}
-      <div className="max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div className="max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center mt-8">
         {/* Image */}
         <motion.img
           src="https://images.unsplash.com/photo-1557734864-c78b6dfef1b1?q=80&w=3134&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

@@ -123,7 +123,7 @@ const Navbar = () => {
 
 
 <NavLink to="/login"  className="btn btn-outline border-blue-600  text-blue-600 bg-white mr-1 px-5 font-semibold">LogIn</NavLink>
-<NavLink to="/signUp" className="btn bg-blue-500  text-white font-semibold">Sign Up</NavLink>
+<NavLink to="/signUp" className="btn bg-blue-600  text-white font-semibold">Sign Up</NavLink>
 
 
 </>

@@ -45,7 +45,9 @@ const CreateNote = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 max-w-lg mx-auto bg-white p-6 rounded shadow">
+   <div>
+    <p className='text-3xl font-bold text-center items-center mt-20'>Create Your Note</p>
+     <form onSubmit={handleSubmit} className="space-y-4 max-w-5xl mx-20  mt-10 bg-white p-6 rounded shadow dark:bg-black">
       <div>
         <label className="block font-semibold">Email</label>
         <input
@@ -78,6 +80,7 @@ const CreateNote = () => {
         Create Note
       </button>
     </form>
+   </div>
   );
 };
 

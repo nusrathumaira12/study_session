@@ -31,7 +31,7 @@ const ApprovedSessions = () => {
   return (
     <section className="py-10 px-5 md:px-10 lg:px-16 bg-base-200">
       <h2 className="text-3xl font-semibold mt-2">Ready to reimagine your career?</h2>
-      <p className="text-xl text-gray-600 mb-6">Here is your available Study Sessions</p>
+      <p className="text-xl text-gray-600 dark:text-white mb-6">Here is your available Study Sessions</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {sessions.map((session, index) => (

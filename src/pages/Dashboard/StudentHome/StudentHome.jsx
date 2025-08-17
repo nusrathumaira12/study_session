@@ -72,7 +72,7 @@ const StudentDashboardHome = () => {
       <h2 className="text-3xl font-bold mb-6">📊 Student Dashboard</h2>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 w-full dark:text-black">
   <StatCard icon={<FaClipboardList />} label="Total Bookings" value={bookings.length} color="blue" />
   <StatCard icon={<FaCalendarAlt />} label="Upcoming Sessions" value={upcomingSessions.length} color="green" />
   <StatCard icon={<FaBook />} label="Study Materials" value={allMaterials.length} color="purple" />

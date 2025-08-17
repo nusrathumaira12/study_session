@@ -29,8 +29,8 @@ const TutorSessions = () => {
   };
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-semibold mb-4">My Study Sessions-</h2>
+    <div className="p-4 dark:bg-black">
+      <h2 className="text-2xl font-semibold mb-4 ">My Study Sessions-</h2>
       {sessions.length === 0 && <p>No Sessions created by you.</p>}
       <div className="grid gap-4">
         {sessions.map(session => (

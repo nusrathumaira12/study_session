@@ -18,8 +18,8 @@ const AiSupport = () => {
       className="md:max-w-xl  max-w-sm rounded-lg shadow-2xl"
     />
     <div>
-      <h1 className="text-3xl font-bold md:mr-65 pt-10  items-center">AI for Business Leaders</h1>
-      <p className="py-6">
+      <h1 className="text-3xl font-bold md:mr-65 pt-10  items-center dark:text-gray-800">AI for Business Leaders</h1>
+      <p className="py-6 dark:text-gray-800">
       Build an AI-habit for you <br /> and your team that builds hands-on skills <br /> to help you lead effectively.
       </p>
       <button onClick={handleButton } className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl shadow-md transition">

@@ -67,7 +67,7 @@ const UploadMaterials = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-4">
+    <div className="max-w-xl mx-auto p-4 dark:bg-black">
       <h2 className="text-2xl font-bold mb-4">Upload Materials</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -133,7 +133,7 @@ const UploadMaterials = () => {
 
         <button
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary mt-2"
           disabled={loading}
         >
           {loading ? 'Uploading...' : 'Upload Material'}

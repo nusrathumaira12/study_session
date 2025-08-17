@@ -119,7 +119,7 @@ const [rejectFeedback, setRejectFeedback] = useState('');
             )}
 
             {session.status === 'approved' && (
-              <div className="flex gap-2 mt-2">
+              <div className="flex gap-2 mt-2 ">
                 <button className="btn btn-sm btn-warning">Update</button>
                 <button onClick={() => deleteSession(session._id)} className="btn btn-sm btn-error">Delete</button>
               </div>
@@ -131,10 +131,10 @@ const [rejectFeedback, setRejectFeedback] = useState('');
       {/* ✅ Approval Modal */}
       {selectedSession && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded shadow-lg w-96 space-y-4">
+          <div className="bg-white p-6 rounded shadow-lg w-96 space-y-4 dark:bg-white dark:text-blue-600">
             <h3 className="text-lg font-semibold">Approve Session</h3>
             <label className="block">Is it Paid?</label>
-            <select value={fee > 0 ? 'paid' : 'free'} onChange={(e) => setFee(e.target.value === 'paid' ? 100 : 0)} className="select w-full">
+            <select value={fee > 0 ? 'paid' : 'free'} onChange={(e) => setFee(e.target.value === 'paid' ? 100 : 0)} className="select w-full dark:bg-gray-200 dark:text-blu badge-outline">
               <option value="free">Free</option>
               <option value="paid">Paid</option>
             </select>

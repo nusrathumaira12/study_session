@@ -31,7 +31,7 @@ const CreateStudySession = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto bg-white p-6 rounded shadow">
+    <div className="max-w-xl mx-auto bg-white p-6 rounded shadow dark:bg-black">
       <h2 className="text-2xl font-bold mb-4">Create Study Session</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <input {...register("title")} placeholder="Session Title" className="input input-bordered w-full" required />

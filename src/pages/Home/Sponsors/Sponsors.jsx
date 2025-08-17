@@ -49,7 +49,7 @@ const Sponsors = () => {
   };
 
   return (
-    <section className="py-14 px-4 bg-base-200">
+    <section className="py-14 px-4 bg-base-200 dark:bg-white">
       <div className="max-w-6xl mx-auto text-center" ref={ref}>
         <motion.h2
           className="text-3xl md:text-4xl font-semibold mb-8"

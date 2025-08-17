@@ -40,7 +40,7 @@ export default function Testimonials() {
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-3">
-        <h2 className="text-3xl font-bold text-center mb-12">
+        <h2 className="text-3xl font-bold text-center mb-12 dark:text-gray-800">
           See what others are achieving through learning
         </h2>
 
@@ -62,7 +62,7 @@ export default function Testimonials() {
                   className="w-16 h-16 rounded-full mr-4"
                 />
                 <div>
-                  <h3 className="font-semibold text-lg">{t.name}</h3>
+                  <h3 className="font-semibold text-lg dark:text-gray-800">{t.name}</h3>
                   <span className="text-sm text-gray-500">{t.role}</span>
                 </div>
               </div>

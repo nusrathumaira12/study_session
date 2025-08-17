@@ -49,7 +49,7 @@ const TutorDashboardHome = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Calendar */}
-        <div className="bg-white p-6 rounded-xl shadow-md border">
+        <div className="bg-white p-6 rounded-xl shadow-md border dark:text-black">
           <h3 className="text-xl font-semibold mb-4 text-blue-600">📅 Calendar</h3>
           <Calendar onChange={setDate} value={date} />
         </div>
@@ -81,7 +81,7 @@ const TutorDashboardHome = () => {
         </div>
       </div>
         {/* Profile Section */}
-        <h2 className="text-2xl font-bold mb-10 mt-12">👤 Your Profile</h2>
+        <h2 className="text-2xl font-bold mb-10 mt-12 dark:text-black">👤 Your Profile</h2>
       <div
         className="rounded-xl p-8 py-20"
         style={{

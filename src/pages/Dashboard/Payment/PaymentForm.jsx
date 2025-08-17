@@ -114,7 +114,7 @@ const amount = Number(sessionInfo.registrationFee); // ensure it's a number
 
 
     return (
-        <div>
+        <div className='mt-20'>
             <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 rounded-xl shadow-md w-full max-w-md mx-auto">
 <CardElement className="p-2 border rounded">
     

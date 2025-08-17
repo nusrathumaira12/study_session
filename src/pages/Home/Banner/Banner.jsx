@@ -20,10 +20,10 @@ const Banner = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 dark:text-gray-900">
             Empowering Collaborative Learning with BrainBuddy
           </h1>
-          <p className="text-lg md:text-xl mb-6">
+          <p className="text-lg md:text-xl mb-6 dark:text-gray-900">
             Connect students, tutors, and administrators in one platform to schedule sessions, share resources, and manage learning effortlessly—built for modern education.
           </p>
           <motion.button

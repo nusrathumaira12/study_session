@@ -69,7 +69,7 @@ const AdminDashboardHome = () => {
       <h2 className="text-3xl font-bold mb-6">🛠️ Admin Dashboard</h2>
 
       {/* Stat Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 w-full  dark:text-black">
         <StatCard icon={<FaUsers />} label="Total Users" value={users.length} color="blue" />
         <StatCard icon={<FaChalkboardTeacher />} label="Total Tutors" value={uniqueTutors.size} color="yellow" />
         <StatCard icon={<FaCalendarAlt />} label="Total Sessions" value={sessions.length} color="green" />

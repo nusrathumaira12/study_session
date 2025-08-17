@@ -47,7 +47,7 @@ const TutorAllMaterials = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="max-w-4xl mx-auto p-4 dark:bg-black">
       <h2 className="text-2xl font-bold mb-4">All Uploaded Materials</h2>
 
       {materials.length === 0 && <p>No materials uploaded yet.</p>}
