@@ -24,25 +24,29 @@ const Navbar = () => {
         }
         
         >Home</NavLink></li>
-       <li><NavLink to="/tutors"
-         className={({ isActive }) =>
-          isActive ? 'text-blue-500 font-semibold' : 'text-black font-semibold dark:text-white'
-        }
-       
-       >Tutors</NavLink></li>
+     
       
-        <li><NavLink to="/about"
-         className={({ isActive }) =>
-          isActive ? 'text-blue-500 font-semibold' : 'text-black font-semibold dark:text-white'
-        }
-       
-       >About BrainBuddy</NavLink></li>
+   
         <li><NavLink to="/study-sessions"
          className={({ isActive }) =>
           isActive ? 'text-blue-500 font-semibold' : 'text-black font-semibold dark:text-white'
         }
        
        >Study Sessions</NavLink></li>
+
+<li><NavLink to="/tutors"
+         className={({ isActive }) =>
+          isActive ? 'text-blue-500 font-semibold' : 'text-black font-semibold dark:text-white'
+        }
+       
+       >Tutors</NavLink></li>
+
+            <li><NavLink to="/about"
+         className={({ isActive }) =>
+          isActive ? 'text-blue-500 font-semibold' : 'text-black font-semibold dark:text-white'
+        }
+       
+       >About BrainBuddy</NavLink></li>
      {user && !isLoading && (
   <li>
     <NavLink

@@ -11,14 +11,14 @@ const AiSupport = () => {
   <div className="mx-auto 
     display: flex
     align-items: center
-    gap-20 max-w-8xl
+    md:gap-20 max-w-8xl
     flex-col lg:flex-row-reverse ">
     <img
       src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      className="max-w-xl rounded-lg shadow-2xl"
+      className="md:max-w-xl  max-w-sm rounded-lg shadow-2xl"
     />
     <div>
-      <h1 className="text-3xl font-bold md:mr-65 pt-10 text-right items-center">AI for Business Leaders</h1>
+      <h1 className="text-3xl font-bold md:mr-65 pt-10  items-center">AI for Business Leaders</h1>
       <p className="py-6">
       Build an AI-habit for you <br /> and your team that builds hands-on skills <br /> to help you lead effectively.
       </p>

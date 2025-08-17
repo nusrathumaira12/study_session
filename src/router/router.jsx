@@ -32,6 +32,7 @@ import StudentDashboardHome from "../pages/Dashboard/StudentHome/StudentHome";
 import AdminDashboardHome from "../pages/Dashboard/AdminHome/AdminHome";
 import TutorDashboardHome from "../pages/Dashboard/TutorDashboardHome/TutorDashboardHome";
 import About from "../pages/About/About";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 
 
 
@@ -70,6 +71,14 @@ Component: About
         path: '/payment/:sessionId',
         Component: Payment
               }
+              ,
+              {
+        
+                path: '*',
+                element: <NotFoundPage />
+             
+              
+            }
     ]
   },
 
@@ -155,6 +164,7 @@ Component: About
       { path: 'sessions', Component: AllStudySessions },
       { path: 'materials', Component: AllMaterials }
     ]
-  }
+  },
+
   
 ]);

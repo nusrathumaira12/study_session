@@ -1,71 +1,56 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-
-// Background images
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router';
 import bannerBg1 from '../../../assets/banner1.jpg';
-import bannerBg2 from '../../../assets/banner2.jpg';
-import bannerBg3 from '../../../assets/banner3.jpg';
 
 const Banner = () => {
-  const slides = [
-    {
-      image: bannerBg1,
-      title: 'Empowering Collaborative Learning with BrainBuddy',
-      description:
-        'Connect students, tutors, and administrators in one platform to schedule sessions, share resources, and manage learning effortlessly—built for modern education.',
-      button: 'Get Started',
-    },
-    {
-      image: bannerBg2,
-      title: 'Study Smarter, Together — Welcome to BrainBuddy',
-      description:
-        'A smart and social platform where learners and tutors collaborate, share, and grow. Plan sessions, access materials, and stay connected—all in one place.',
-      button: 'Join the Community',
-    },
-    {
-      image: bannerBg3,
-      title: 'Your All-in-One Study Companion',
-      description:
-        'BrainBuddy simplifies education by connecting students, tutors, and admins for seamless study session scheduling, resource sharing, and progress tracking.',
-      button: 'Explore Features',
-    },
-  ];
+  const navigate = useNavigate();
+  const handleButton = () => {
+    navigate("/study-sessions");
+  };
 
   return (
-    <Swiper
-      modules={[Autoplay, Pagination]}
-      loop={true}
-      autoplay={{ delay: 2500, disableOnInteraction: false }}
-      pagination={{ clickable: true }}
-      className="h-[580px]"
-    >
-      {slides.map((slide, index) => (
-        <SwiperSlide key={index}>
-          <div
-            className="h-full bg-cover bg-center flex items-center justify-center relative"
-            style={{ backgroundImage: `url(${slide.image})` }}
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 px-4 md:px-6">
+        
+        {/* Left Content */}
+        <motion.div
+          className="flex-1 text-center lg:text-left"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            Empowering Collaborative Learning with BrainBuddy
+          </h1>
+          <p className="text-lg md:text-xl mb-6">
+            Connect students, tutors, and administrators in one platform to schedule sessions, share resources, and manage learning effortlessly—built for modern education.
+          </p>
+          <motion.button
+            onClick={handleButton}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl shadow-md transition"
           >
-            {/* Overlay */}
-            <div className="absolute inset-0"></div>
+            Get Started
+          </motion.button>
+        </motion.div>
 
-            {/* Content */}
-            <div className="relative z-10 text-center max-w-3xl  px-6 py-8 bg-black/50 rounded-xl text-white shadow-xl">
-
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                {slide.title}
-              </h1>
-              <p className="text-lg md:text-xl mb-6">{slide.description}</p>
-              <button className="bg-blue-600 hover:bg-blue-700 transition px-6 py-3 rounded-full font-medium">
-                {slide.button}
-              </button>
-            </div>
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+        {/* Right Image */}
+        <motion.div
+          className="flex-1"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <img
+            src={bannerBg1}
+            alt="BrainBuddy Banner"
+            className="w-full rounded-lg shadow-2xl object-cover"
+          />
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
