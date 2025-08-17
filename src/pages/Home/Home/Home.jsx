@@ -3,6 +3,8 @@ import Banner from '../Banner/Banner';
 import ApprovedSessions from '../ApprovedSessions/ApprovedSessions';
 import Sponsors from '../Sponsors/Sponsors';
 import Goals from '../Goals/Goals';
+import Testimonials from '../../Testimonials/Testimonials';
+import AiSupport from '../../AiSupport/AiSupport';
 
 const Home = () => {
     return (
@@ -11,6 +13,8 @@ const Home = () => {
            <ApprovedSessions></ApprovedSessions>
            <Sponsors></Sponsors>
            <Goals></Goals>
+           <Testimonials></Testimonials>
+           <AiSupport></AiSupport>
         </div>
     );
 };

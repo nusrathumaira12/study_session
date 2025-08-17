@@ -31,6 +31,7 @@ import AllMaterials from "../pages/Dashboard/AllMaterials/AllMaterials";
 import StudentDashboardHome from "../pages/Dashboard/StudentHome/StudentHome";
 import AdminDashboardHome from "../pages/Dashboard/AdminHome/AdminHome";
 import TutorDashboardHome from "../pages/Dashboard/TutorDashboardHome/TutorDashboardHome";
+import About from "../pages/About/About";
 
 
 
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
 {
 path: '/tutors',
 Component: TutorsPage
+},
+{
+path: '/about',
+Component: About
 },
       {
         path: '/study-sessions',

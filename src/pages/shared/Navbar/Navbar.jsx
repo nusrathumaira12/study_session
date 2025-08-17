@@ -30,7 +30,14 @@ const Navbar = () => {
         }
        
        >Tutors</NavLink></li>
-       <li><NavLink to="/study-sessions"
+      
+        <li><NavLink to="/about"
+         className={({ isActive }) =>
+          isActive ? 'text-blue-500 font-semibold' : 'text-black font-semibold dark:text-white'
+        }
+       
+       >About BrainBuddy</NavLink></li>
+        <li><NavLink to="/study-sessions"
          className={({ isActive }) =>
           isActive ? 'text-blue-500 font-semibold' : 'text-black font-semibold dark:text-white'
         }
@@ -64,7 +71,7 @@ const Navbar = () => {
     
   
     return (
-        <div className="navbar sticky top-0 z-50 bg-base-200   md:px-10 justify-center">
+        <div className="navbar sticky top-0 z-50 bg-base-200   md:px-15 justify-center">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden -ml-4">
