@@ -5,6 +5,7 @@ import Sponsors from '../Sponsors/Sponsors';
 import Goals from '../Goals/Goals';
 import Testimonials from '../../Testimonials/Testimonials';
 import AiSupport from '../../AiSupport/AiSupport';
+import Contact from '../../Contact/Contact';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
            <Goals></Goals>
            <Testimonials></Testimonials>
            <AiSupport></AiSupport>
+           <Contact></Contact>
         </div>
     );
 };
