@@ -5,16 +5,20 @@ const StudySessions = () => {
   const [sessions, setSessions] = useState([]);
   const [sortedSessions, setSortedSessions] = useState([]);
   const [sortType, setSortType] = useState('dateAsc');
+  const [loading, setLoading] = useState(true); 
   const navigate = useNavigate();
 
   useEffect(() => {
+    setLoading(true);
     fetch('https://student-collaborative-server.vercel.app/sessions')
       .then(res => res.json())
       .then(data => {
         setSessions(data);
         setSortedSessions(data);
       })
-      .catch(error => console.error('Error fetching sessions:', error));
+      .catch(error => console.error('Error fetching sessions:', error))
+      .finally(() => setLoading(false)); 
+
   }, []);
 
   const checkStatus = (start, end) => {
@@ -59,10 +63,15 @@ const StudySessions = () => {
           </select>
         </div>
       </div>
+      {loading ? (
+        <div className="flex justify-center items-center h-64">
+          <div className="w-12 h-12 border-4 border-indigo-500 border-dashed rounded-full animate-spin"></div>
+        </div>
+      ) : (
 
-      {/* Sessions Grid */}
+    
       <div className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl justify-center mx-auto">
-        {sortedSessions.map(session => (
+        {sortedSessions.map((session) => (
           <div key={session._id} className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
             <img src={session.image} alt={session.title} className="w-full h-40 object-cover rounded-md mb-4" />
             <h2 className="text-xl font-bold mb-2">{session.title}</h2>
@@ -91,8 +100,10 @@ const StudySessions = () => {
           </div>
         ))}
       </div>
-    </div>
-  );
+   
+  )};
+  </div>
+  )
 };
 
 export default StudySessions;
